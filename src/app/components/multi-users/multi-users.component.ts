@@ -27,7 +27,7 @@ export class MultiUsersComponent {
     this.form.valueChanges.pipe(startWith({departments: '', roles: ''}))
   ]).pipe(
     map(([users, form]) =>
-        !!form.departments && !!form.roles ? users.filter((user) => user.departmentId == +form.departments.id && user.roleId == form.roles.id) : []
+        !!form.departments && !!form.roles ? users.filter((user) => user.departmentId === +form.departments.id && user.roleId === form.roles.id) : []
       // {
       // return users.filter((user) => user.departmentId === +form.departments.id && user.roleId === form.roles.id)
       // }
