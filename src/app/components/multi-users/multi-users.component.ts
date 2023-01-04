@@ -33,6 +33,7 @@ export class MultiUsersComponent {
   private _departmentSubject: Subject<string> = new Subject<string>();
   public departmentSubject$: Observable<string> = this._departmentSubject.asObservable();
 
+
   selectDepartment(dept: string): void {
     this._departmentSubject.next(dept);
   }

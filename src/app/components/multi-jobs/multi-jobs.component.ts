@@ -42,7 +42,6 @@ export class MultiJobsComponent {
       return [];
     }
   }))
-
   constructor(private _multiJobsService: MultiJobsService) {
   }
 }

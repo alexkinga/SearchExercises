@@ -7,7 +7,7 @@
         <mat-select formControlName="departments">
           <mat-option *ngFor="let item of departmentsList$ | async" [value]="item"
                       (click)="selectDepartment(item.name)">
-            {{ item.name }}
+            {{item.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -16,7 +16,7 @@
         <br/>
         <mat-radio-group formControlName="roles">
           <mat-radio-button *ngFor="let item of rolesList$ | async" [value]="item">
-            {{ item.role }}
+            {{item.role}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
