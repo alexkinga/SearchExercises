@@ -22,9 +22,9 @@ export class ProductCategoryComponent {
     this._productService.getAll(),
     this.form.valueChanges.pipe(startWith({ categories: '' })),
   ]).pipe(
-    map(([products, form]) => {
-      return products.filter((product) => product.category === form.categories)
-    })
+    map(([products, form]) =>
+      !!form.categories ? products.filter((product) => product.category === form.categories) : []
+    )
   )
 
   constructor(private _productService: ProductService) {
