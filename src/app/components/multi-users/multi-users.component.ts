@@ -28,9 +28,6 @@ export class MultiUsersComponent {
   ]).pipe(
     map(([users, form]) =>
         !!form.departments && !!form.roles ? users.filter((user) => user.departmentId === +form.departments.id && user.roleId === form.roles.id) : []
-      // {
-      // return users.filter((user) => user.departmentId === +form.departments.id && user.roleId === form.roles.id)
-      // }
     )
   )
   constructor(private _userService: UserService) {
