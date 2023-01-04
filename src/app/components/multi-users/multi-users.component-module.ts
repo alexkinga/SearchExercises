@@ -7,10 +7,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 import { MultiUsersComponent } from './multi-users.component';
 
 @NgModule({
-  imports: [MatCardModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule, CommonModule, MatRadioModule, MatListModule],
+  imports: [MatCardModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule, CommonModule, MatRadioModule, MatListModule, MatTableModule],
   declarations: [MultiUsersComponent],
   providers: [],
   exports: [MultiUsersComponent]

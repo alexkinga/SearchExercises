@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Observable, combineLatest, startWith, map} from 'rxjs';
+import {Observable, combineLatest, startWith, map, Subject} from 'rxjs';
 import {UserModel} from '../../models/user.model';
 import {DepartmentModel} from '../../models/department.model';
 import {RolesModel} from '../../models/roles.model';
@@ -30,6 +30,12 @@ export class MultiUsersComponent {
         !!form.departments && !!form.roles ? users.filter((user) => user.departmentId === +form.departments.id && user.roleId === form.roles.id) : []
     )
   )
+  private _departmentSubject: Subject<string> = new Subject<string>();
+  public departmentSubject$: Observable<string> = this._departmentSubject.asObservable();
+
+  selectDepartment(dept: string): void {
+    this._departmentSubject.next(dept);
+  }
   constructor(private _userService: UserService) {
   }
 }
