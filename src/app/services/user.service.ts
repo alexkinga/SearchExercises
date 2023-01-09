@@ -10,10 +10,10 @@ export class UserService {
   constructor(private _httpClient: HttpClient) {
   }
 
-  getRoles(): Observable<RolesModel[]> {
+  getRoles(role: string): Observable<RolesModel[]> {
     return this._httpClient.get<RolesModel[]>('https://636ce2d8ab4814f2b2712854.mockapi.io/roles');
   }
-  getDepartments(): Observable<DepartmentModel[]> {
+  getDepartments(department: string): Observable<DepartmentModel[]> {
     return this._httpClient.get<DepartmentModel[]>('https://636ce2d8ab4814f2b2712854.mockapi.io/departments');
   }
   getUsers(): Observable<UserModel[]> {

@@ -19,8 +19,20 @@ export class MultiUsersComponent {
     departments: new FormControl(''),
     roles: new FormControl('')
   })
-  readonly departmentsList$: Observable<DepartmentModel[]> = this._userService.getDepartments();
-  readonly rolesList$: Observable<RolesModel[]> = this._userService.getRoles();
+  readonly departmentsList$: Observable<DepartmentModel[]> = this._userService.getDepartments('');
+  readonly rolesList$: Observable<RolesModel[]> = this._userService.getRoles('');
+
+  // readonly usersList$: Observable<UserModel[] | undefined> = this.form.valueChanges.pipe(
+  //   startWith({departments: '', roles: ''}),
+  //   debounceTime(1000),
+  //   switchMap((search) =>
+  //     !!search.departments && !!search.roles
+  //       ? this._userService.getDepartments(search.departments) && this._userService.getRoles(search.roles)
+  //       ? this._userService.getDepartments(search.departments) && this._userService.getRoles(search.roles)
+  //       ? of([]) : of([]) : of(undefined) : of(undefined)
+      // ? this._userService.getDepartments(search.departments) && this._userService.getRoles(search.roles) ?
+      //     this._userService.getDepartments(search.departments) && this._userService.getRoles(search.roles) ? of ([]) : of(undefined)
+      // ))
 
   readonly usersList$: Observable<UserModel[]> = combineLatest([
     this._userService.getUsers(),
@@ -37,6 +49,8 @@ export class MultiUsersComponent {
   selectDepartment(dept: string): void {
     this._departmentSubject.next(dept);
   }
+
+
   constructor(private _userService: UserService) {
   }
 }
